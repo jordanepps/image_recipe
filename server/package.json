@@ -1,12 +1,14 @@
 {
-  "name": "express-boilerplate",
+  "name": "image_recipe_server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
     "test": "mocha --require test/setup.js",
-    "dev": "nodemon src/server.js",
     "start": "node src/server.js",
+    "client": "npm start --prefix ../client",
+    "server": "nodemon src/server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "predeploy": "npm audit",
     "deploy": "git push heroku master"
   },
@@ -22,6 +24,7 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "concurrently": "^5.1.0",
     "mocha": "^6.0.2",
     "nodemon": "^1.18.10",
     "supertest": "^3.4.2"
