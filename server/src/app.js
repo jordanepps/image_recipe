@@ -35,7 +35,10 @@ app.post('/upload', (req, res) => {
       return res.status(500).send(err);
     }
 
-    res.json({ fileName: file.name });
+    res.json({
+      fileName: file.name,
+      path: `http://localhost:8000/uploads/${file.name}`
+    });
   });
 });
 
