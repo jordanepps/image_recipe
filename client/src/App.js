@@ -3,7 +3,6 @@ import './App.css';
 
 import axios from 'axios';
 
-//
 import ImageUploader from './components/ImageUploader';
 
 function App() {
@@ -19,18 +18,12 @@ function App() {
           'Content-Type': 'multipart/form-data'
         }
       });
-
-      const { fileName, filePath } = res.data;
-
-      // setUploadedFile({ fileName, filePath });
-
-      // setMessage('File Uploaded');
+      // const { fileName, filePath } = res.data;
+      console.log(res.data);
     } catch (err) {
       if (err.response.status === 500) {
-        // setMessage('There was a problem with the server');
         console.log(err);
       } else {
-        // setMessage(err.response.data.msg);
         console.log(err);
       }
     }
